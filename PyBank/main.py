@@ -7,9 +7,11 @@ import csv
 Total_Months = []
 Total = []
 Average_Change = []
+MoM_Change = []
 Greatest_Increase_Profits = []
 Greatest_Decrease_Profits = []
 Total_Profit_Losses = []
+Last_Profit_Losses = []
 
 
 
@@ -38,7 +40,11 @@ with open(csvpath) as csvfile:
 
 # average of the changes in "Profit/Losses" over the entire period
         if Total_Months--1:
-                
+                Last_Profit_Losses-int(row[1])
+        else:
+                MoM_Change-int(row[1]-Last_Profit_Losses)
+                Total_Change+-MoM_Change
+                        
 
 # greatest increase in profits (date and amount) over the entire period
 
