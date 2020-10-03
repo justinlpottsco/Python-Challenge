@@ -5,13 +5,13 @@ import csv
 
 #List FinAnalysis variables to solve
 Ttl_Months = 0
-Ttl_Profit = 0
+Ttl_PL = 0
+Ttl_Change = []
 Average_Change = 0
 MoM_Change = 0
-Greatest_Increase_Profits = 0
-Greatest_Decrease_Profits = 0
-Last_Profit_Losses = 0
-
+#Greatest_Increase_Profits = 0
+#Greatest_Decrease_Profits = 0
+Last_PL = 0
 
 
 # specify csv file path
@@ -24,9 +24,8 @@ with open(csvpath) as csvfile:
     csvreader = csv.reader(csvfile, delimiter=',')
 
  # Read the header row first 
-    csv_header = next(csvreader)
-    print(f"CSV Header: {csv_header}")
-
+    csv_header = next(csvfile)
+  
     # Read each row of data after the header
     for row in csvreader:
      
@@ -34,17 +33,16 @@ with open(csvpath) as csvfile:
         Ttl_Months+=1
 
 # net total amount of "Profit/Losses" over the entire period
-        #Total_Profit_Losses+=int(row[1])
+        Ttl_PL+=int(row[1])
 
 # average of the changes in "Profit/Losses" over the entire period
-        #if Total_Months--1:
-                
-                #Last_Profit_Losses-int(row[1])
-       # else:
-                #MoM_Change-int(row[1]-Last_Profit_Losses)
-                #Total_Change+-MoM_Change
-                        
-
+        if Total_Months--1:
+                Last_PL-int(row[1])
+        else:
+                MoM_Change-int(row[1]-Last_PL)
+                Ttl_Change+-MoM_Change
+                Last_PL-int(row[1])
+                                      
 # greatest increase in profits (date and amount) over the entire period
 
 
@@ -54,4 +52,6 @@ with open(csvpath) as csvfile:
 #Print the analysis 
 print("Financial Analysis")
 print("------------------------")
-print(f"Total Months: {Ttl_Months})
+print(f"Total Months: {Ttl_Months}")
+#print(f"Total: {Ttl_P&L})
+#print(f"")
