@@ -5,13 +5,13 @@ import csv
 
 #List FinAnalysis variables to solve
 Total_Months = []
-Total = []
-Average_Change = []
-MoM_Change = []
-Greatest_Increase_Profits = []
-Greatest_Decrease_Profits = []
-Total_Profit_Losses = []
-Last_Profit_Losses = []
+Total = 0
+Average_Change = 0
+MoM_Change = 0
+Greatest_Increase_Profits = 0
+Greatest_Decrease_Profits = 0
+Total_Profit_Losses = 0
+Last_Profit_Losses = 0
 
 
 
@@ -50,3 +50,7 @@ with open(csvpath) as csvfile:
 
 
 # greatest decrease in losses (date and amount) over the entire period
+
+
+#Print the analysis 
+print(f"Total_Months")
