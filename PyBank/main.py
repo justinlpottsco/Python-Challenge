@@ -31,19 +31,19 @@ with open(csvpath) as csvfile:
     # Read each row of data after the header
     for row in csvreader:
      
-    
-# total number of months included in the dataset
+    # total number of months included in the dataset
         Total_Months+=1
 
 # net total amount of "Profit/Losses" over the entire period
-        Total_Profit_Losses+=int(row[1])
+        #Total_Profit_Losses+=int(row[1])
 
 # average of the changes in "Profit/Losses" over the entire period
-        if Total_Months--1:
-                Last_Profit_Losses-int(row[1])
-        else:
-                MoM_Change-int(row[1]-Last_Profit_Losses)
-                Total_Change+-MoM_Change
+        #if Total_Months--1:
+                
+                #Last_Profit_Losses-int(row[1])
+       # else:
+                #MoM_Change-int(row[1]-Last_Profit_Losses)
+                #Total_Change+-MoM_Change
                         
 
 # greatest increase in profits (date and amount) over the entire period
