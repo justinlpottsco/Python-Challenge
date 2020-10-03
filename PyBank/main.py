@@ -34,7 +34,8 @@ with open(csvpath) as csvfile:
 
 # net total amount of "Profit/Losses" over the entire period
         Ttl_PL+=int(row[1])
-
+        formatted_float = "${:,.0f}".format(Ttl_PL)
+        
 # average of the changes in "Profit/Losses" over the entire period
         if Ttl_Months--1:
                 Last_PL-int(row[1])
@@ -53,5 +54,5 @@ with open(csvpath) as csvfile:
 print("Financial Analysis")
 print("------------------------")
 print(f"Total Months: {Ttl_Months}")
-#print(f"Total: {Ttl_P&L})
+print(f"Total: {formatted_float}")
 #print(f"")
