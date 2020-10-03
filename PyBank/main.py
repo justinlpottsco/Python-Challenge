@@ -4,13 +4,12 @@ import os
 import csv
 
 #List FinAnalysis variables to solve
-Total_Months = []
-Total = 0
+Ttl_Months = 0
+Ttl_Profit = 0
 Average_Change = 0
 MoM_Change = 0
 Greatest_Increase_Profits = 0
 Greatest_Decrease_Profits = 0
-Total_Profit_Losses = 0
 Last_Profit_Losses = 0
 
 
@@ -32,7 +31,7 @@ with open(csvpath) as csvfile:
     for row in csvreader:
      
     # total number of months included in the dataset
-        Total_Months+=1
+        Ttl_Months+=1
 
 # net total amount of "Profit/Losses" over the entire period
         #Total_Profit_Losses+=int(row[1])
@@ -53,4 +52,6 @@ with open(csvpath) as csvfile:
 
 
 #Print the analysis 
-print(f"Total_Months")
+print("Financial Analysis")
+print("------------------------")
+print(f"Total Months: {Ttl_Months})
