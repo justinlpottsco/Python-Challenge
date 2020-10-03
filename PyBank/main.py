@@ -6,12 +6,14 @@ import csv
 #List FinAnalysis variables to solve
 Ttl_Months = 0
 Ttl_PL = 0
-Ttl_Change = 0
-Average_Change = 0
+Prior_PL = 0
+Current_PL = 0
 MoM_Change = 0
+Average_Change = 0
+
+
 #Greatest_Increase_Profits = 0
 #Greatest_Decrease_Profits = 0
-Last_PL = 0
 
 
 # specify csv file path
@@ -35,16 +37,18 @@ with open(csvpath) as csvfile:
 # net total amount of "Profit/Losses" over the entire period
         Ttl_PL+=int(row[1])
         
-        
 # average of the changes in "Profit/Losses" over the entire period
-        if Ttl_Months--1:
-                Last_PL-int(row[1])
-                format_float = "${:,.0f}".format(Ttl_Months)
+        if Ttl_Months > 1:
+                Prior_PL-int(row[1])
         else:
-                MoM_Change-int(row[1]-Last_PL)
-                Ttl_Change+-MoM_Change
-                Last_PL-int(row[1]) 
-        
+                Current_PL-int(row[1])-Prior_PL
+                MoM_Change+-Current_PL
+                Prior_PL-int(row[1])
+
+# calculate average change
+sum_MoM_Change = sum(MoM_Change)
+Average_Change = (sum_MoM_Change/(Ttl_Months - 1))
+          
                                              
 # greatest increase in profits (date and amount) over the entire period
 
