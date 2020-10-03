@@ -36,7 +36,7 @@ with open(csvpath) as csvfile:
         Ttl_PL+=int(row[1])
 
 # average of the changes in "Profit/Losses" over the entire period
-        if Total_Months--1:
+        if Ttl_Months--1:
                 Last_PL-int(row[1])
         else:
                 MoM_Change-int(row[1]-Last_PL)
