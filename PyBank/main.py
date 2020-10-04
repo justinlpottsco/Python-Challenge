@@ -7,15 +7,12 @@ import csv
 Ttl_Months = 0
 Ttl_PL = 0
 Prior_PL = 0
-Current_PL = 0
+Change_PL = 0
 MoM_Change = 0
-Average_Change = 0
-
-
-#Greatest_Increase_Profits = 0
-#Greatest_Decrease_Profits = 0
-
-
+Greatest_Increase_Profits = 0
+Greatest_Decrease_Profits = 0
+Greatest_Profit_Month = ""
+Greatest_Loss_Month = ""
 # specify csv file path
 csvpath = os.path.join('Resources','budget_data.csv')
 
@@ -38,23 +35,26 @@ with open(csvpath) as csvfile:
         Ttl_PL+=int(row[1])
         
 # average of the changes in "Profit/Losses" over the entire period
-        if Ttl_Months > 1:
-                Prior_PL-int(row[1])
+        if Ttl_Months==1:
+                Prior_PL=int(row[1])
         else:
-                Current_PL-int(row[1])-Prior_PL
-                MoM_Change+-Current_PL
-                Prior_PL-int(row[1])
+                Change_PL=int(row[1])-Prior_PL
+                MoM_Change+=Change_PL
+                Prior_PL=int(row[1])
 
 # calculate average change
-sum_MoM_Change = sum(MoM_Change)
-Average_Change = (sum_MoM_Change/(Ttl_Months - 1))
-          
-                                             
+Average_Change = (MoM_Change/(Ttl_Months-1))
+                                                       
 # greatest increase in profits (date and amount) over the entire period
+if Change_PL>Greatest_Increase_Profits:
+        Greatest_Increase_Profits=Change_PL
+        Greatest_Profit_Month=str(row[0])
 
-
+        
 # greatest decrease in losses (date and amount) over the entire period
-
+elif Change_PL<Greatest_Decrease_Profits:
+        Greatest_Decrease_Profits=Change_PL
+        Greatest_Loss_Month=str(row[0])
 
 #Print the analysis 
 print("Financial Analysis")
@@ -62,3 +62,9 @@ print("------------------------")
 print(f"Total Months: {Ttl_Months}")
 print(f"Total: ${Ttl_PL}")
 print(f"Average Change: {Average_Change}")
+print(f"Greatest Increase in Profits: {Greatest_Increase_Profits}")
+print(f"Greatest Decrease in Profits: {Greatest_Decrease_Profits}")
+
+#Export to text file
+
+print
