@@ -28,9 +28,21 @@ with open(csvpath) as csvfile:
     # total number of months included in the dataset
         Ttl_Votes+=1
         i = (row[2])
-            
+        candidate = row[2]
+       
+
     #list candidate names
-        Candidate_Names+=row[1]
+        #Candidate_Names=row[2]
+    #if i in Votes_Candidate:
+        #Votes_Candidate[i] +=1
+    #else:
+       # Votes_Candidate[i]=1
+    
+    #who won
+
+
+
+
 
     
 
