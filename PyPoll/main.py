@@ -11,7 +11,7 @@ Ttl_Votes = 0
 csvpath = os.path.join('Resources','election_data.csv')
 
 #open csv
-with open(csvpath, newline= "") as csvfile:
+with open(csvpath) as csvfile:
 
 # CSV reader specifies delimiter and variable that holds contents
     csvreader = csv.reader(csvfile, delimiter=',')
