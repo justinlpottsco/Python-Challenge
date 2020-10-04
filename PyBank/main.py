@@ -49,7 +49,6 @@ Average_Change = (MoM_Change/(Ttl_Months-1))
 if Change_PL>Greatest_Increase_Profits:
         Greatest_Increase_Profits=Change_PL
         
-
         
 # greatest decrease in losses (date and amount) over the entire period
 elif Change_PL<Greatest_Decrease_Profits:
