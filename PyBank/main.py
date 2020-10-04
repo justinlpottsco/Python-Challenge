@@ -48,17 +48,17 @@ Average_Change = (MoM_Change/(Ttl_Months-1))
 # greatest increase in profits (date and amount) over the entire period
 if Change_PL>Greatest_Increase_Profits:
         Greatest_Increase_Profits=Change_PL
-        Greatest_Profit_Month=str(row[0])
+        
 
         
 # greatest decrease in losses (date and amount) over the entire period
 elif Change_PL<Greatest_Decrease_Profits:
         Greatest_Decrease_Profits=Change_PL
-        Greatest_Loss_Month=str(row[0])
+        
 
 #Print the analysis 
 print("Financial Analysis")
-print("------------------------")
+print("-------------------------")
 print(f"Total Months: {Ttl_Months}")
 print(f"Total: ${Ttl_PL}")
 print(f"Average Change: {Average_Change}")
@@ -66,5 +66,12 @@ print(f"Greatest Increase in Profits: {Greatest_Increase_Profits}")
 print(f"Greatest Decrease in Profits: {Greatest_Decrease_Profits}")
 
 #Export to text file
+with open(csvpath, "w") as txtfile:
 
-print
+        print("Financial Analysis",file=txtfile)
+        print("-------------------------",file=txtfile)
+        print(f"Total Months: {Ttl_Months}", file=txtfile)
+        print(f"Total: ${Ttl_PL}", file=txtfile)
+        print(f"Average Change: {Average_Change}", file=txtfile)
+        print(f"Greatest Increase in Profits: {Greatest_Increase_Profits}", file=txtfile)
+        print(f"Greatest Decrease in Profits: {Greatest_Decrease_Profits}", file=txtfile)
