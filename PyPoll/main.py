@@ -5,6 +5,11 @@ import csv
 
 # List variables
 Ttl_Votes = 0
+Candidate_Names = []
+PctVotes_Candidate = {}
+Votes_Candidate = {}
+Winner = 0
+
 
 
 # specify csv file path

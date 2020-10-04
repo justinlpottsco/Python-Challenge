@@ -13,6 +13,7 @@ Greatest_Increase_Profits = 0
 Greatest_Decrease_Profits = 0
 Greatest_Profit_Month = ""
 Greatest_Loss_Month = ""
+
 # specify csv file path
 csvpath = os.path.join('Resources','budget_data.csv')
 
@@ -54,7 +55,6 @@ if Change_PL>Greatest_Increase_Profits:
 elif Change_PL<Greatest_Decrease_Profits:
         Greatest_Decrease_Profits=Change_PL
         
-
 #Print the analysis 
 print("Financial Analysis")
 print("-------------------------")
@@ -64,7 +64,8 @@ print(f"Average Change: {Average_Change}")
 print(f"Greatest Increase in Profits: {Greatest_Increase_Profits}")
 print(f"Greatest Decrease in Profits: {Greatest_Decrease_Profits}")
 
-#Export to text file
+#Export to text file folder
+csvpath=os.path.join("Analysis","budget_data.txt")
 with open(csvpath, "w") as txtfile:
 
         print("Financial Analysis",file=txtfile)
