@@ -27,6 +27,11 @@ with open(csvpath) as csvfile:
      
     # total number of months included in the dataset
         Ttl_Votes+=1
+    
+    #list candidate names
+        Candidate_Names = row[2]
+
+    
 
 
 
@@ -36,6 +41,7 @@ print("Election Results")
 print("-------------------------")
 print(f"Total Votes: {Ttl_Votes}")
 print("-------------------------")
+print(f"{Candidate_Names}")
 
 
 #Export to text file folder
