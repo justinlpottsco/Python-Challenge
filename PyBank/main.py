@@ -47,11 +47,13 @@ Average_Change = (MoM_Change/(Ttl_Months-1))
 # greatest increase in profits (date and amount) over the entire period
 if Change_PL>Greatest_Increase_Profits:
         Greatest_Increase_Profits=Change_PL
-        #Greatest_Profit_Month=str(row[0])
-        
+        Greatest_Increase_Profits=str(row[1])
+
+                
 # greatest decrease in losses (date and amount) over the entire period
 elif Change_PL<Greatest_Decrease_Profits:
         Greatest_Decrease_Profits=Change_PL
+        Greatest_Decrease_Profits=str(row[1])
         
         
 #Print the analysis 
